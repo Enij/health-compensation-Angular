@@ -1,0 +1,39 @@
+.info-wrapper{
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+    max-width: 140px;
+
+    p {
+        font-family: 'Sora';
+        font-style: normal;
+        text-align: center;
+
+        &.info-text {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 15px;
+            color: #111317;
+            margin: 0 0 20px 0;
+        }
+
+        &.total-sum {
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #111317;
+            margin: 0;
+        }
+
+        &.daily-sum {
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 15px;
+            color: #7A818E;
+            margin: 0;
+        }
+    }
+}

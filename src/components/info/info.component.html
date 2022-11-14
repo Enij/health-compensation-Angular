@@ -1,0 +1,15 @@
+<div class="info-wrapper">
+    <p class="info-text">
+        {{ info }}
+        <br/>
+        <b>{{ daysCompensated }} days</b>
+    </p>
+    <p class="total-sum">
+        <b>{{ daysCompensated * compIncome | currency }}</b>
+    </p>
+    <p class="daily-sum">
+        Daily allowance
+        <br/>
+        {{ compIncome | currency }}
+    </p>
+</div>

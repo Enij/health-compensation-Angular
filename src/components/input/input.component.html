@@ -1,0 +1,11 @@
+<mat-label>{{ label }}</mat-label>
+<mat-form-field appearance="outline">
+    <input
+        type="number"
+        min="0"
+        matInput 
+        (input)="onChange($any($event.target).value)"
+    />
+    <span>{{ unit }}</span>
+</mat-form-field>
+

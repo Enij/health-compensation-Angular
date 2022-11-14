@@ -1,0 +1,79 @@
+<div class="main">
+    <section class="content">
+        <h1>Quam Tristique Condimentum</h1>
+        <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+            <span class="red-highlight">Curabitur blandit</span> tempus porttitor. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vestibulum id ligula porta felis euismod semper.
+        </p>
+        <div class="content-image">
+            <div>
+                <h2>Fringilla Euismod Adipiscing Ipsum</h2>
+                <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas faucibus mollis interdum. Aenean lacinia bibendum nulla sed.</p>
+            </div>     
+            <img alt="Clouds" src="https://publicdomainarchive.com/wp-content/uploads/ewpt_cache/240x0_100_1_c_ffffff_659c434453894e291a4e5deeac00366c.jpg">
+        </div>
+        <ul class="no-padding">
+            <li>
+                Tellus Ullamcorper Inceptos
+            </li>
+            <li>
+                Magna Condimentum
+            </li>
+            <ul class="white">
+                <li>
+                    Mattis Tristique
+                </li>
+                <li>
+                    Pharetra Pellentesque Dapibus
+                </li>
+            </ul>
+            <li>
+                Aenean Inceptos
+            </li>
+            <li>
+                Parturient Bibendum
+            </li>
+        </ul>
+    </section>
+    <section class="calculator">
+        <form class="inputs" [formGroup]="form">
+            <h4>Compensation Calculator</h4>
+            <input-component
+                label="Average income"
+                unit="€"
+                formControlName="avgIncome"
+                min="0"
+            >
+            </input-component>
+            <input-component
+                label="Days on sick-leave"
+                unit="days"
+                formControlName="sickDays"
+                min="0"
+                max="maxDays"
+            >
+            </input-component>
+            <mat-checkbox
+                formControlName="haveTubercolosis"
+            >I have tubercolosis</mat-checkbox>
+            <button mat-button color="primary" (click)="calcCompensation()">Calculate</button>
+        </form>
+        <hr>
+        <div class="info">
+            <info-component
+                info="The employer compensates"
+                [daysCompensated]="employerCompensates"
+                [compIncome]="avgIncome"
+            ></info-component>
+            <info-component
+                info="Health Insurance compensates"
+                [daysCompensated]="insuranceCompensates"
+                [compIncome]="avgIncome"
+            ></info-component>
+        </div>
+        <hr>
+        <p class="compensation-total">Compensation total for {{ form.value.sickDays > 0 ? form.value.sickDays : '' }} days (net) 
+            <span class="compensation-total-number">{{ (employerCompensates + insuranceCompensates) * avgIncome | currency }}</span>
+        </p>
+    </section>
+</div>
+<router-outlet></router-outlet>
